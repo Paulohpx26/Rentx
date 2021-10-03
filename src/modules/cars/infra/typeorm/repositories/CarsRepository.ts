@@ -22,6 +22,7 @@ class CarsRepository implements ICarsRepository {
     fine_amount,
     license_plate,
     category_id,
+    available,
     specifications,
   }: ICreateCarDTO): Promise<Car> {
     const car = this.repository.create({
@@ -33,6 +34,7 @@ class CarsRepository implements ICarsRepository {
       fine_amount,
       license_plate,
       category_id,
+      available,
       specifications,
     });
 
@@ -48,7 +50,7 @@ class CarsRepository implements ICarsRepository {
   }
 
   listAvailable({ name, brand, category_id }: IListCarsDTO): Promise<Car[]> {
-    const filters = { name, brand, category_id };
+    const filters = { name, brand, category_id, available: true };
 
     if (!name) delete filters.name;
     if (!brand) delete filters.brand;

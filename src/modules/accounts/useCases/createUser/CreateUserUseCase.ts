@@ -24,7 +24,7 @@ class CreateUserUserCase {
 
     const passwordHash = await hash(password, 8);
 
-    await this.usersRepository.created({
+    await this.usersRepository.create({
       name,
       password: passwordHash,
       email,

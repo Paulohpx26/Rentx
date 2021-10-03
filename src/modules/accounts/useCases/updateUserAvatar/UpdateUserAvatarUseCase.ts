@@ -22,7 +22,7 @@ class UpdateUserAvatarUseCase {
 
     user.avatar = avatar_file;
 
-    this.usersRepository.created(user);
+    this.usersRepository.create(user);
   }
 }
 
