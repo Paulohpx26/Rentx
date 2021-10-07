@@ -7,16 +7,23 @@ class UsersRepositoryInMemory implements IUsersRepository {
   users: User[] = [];
 
   async create(data: ICreateUserDTO): Promise<void> {
-    let user: User;
+    if (data.id) {
+      const userExistent = this.users.find(user => user.id === data.id);
 
-    if (data.id) user = this.users.find(user => user.id === data.id);
-    else user = new User();
+      Object.assign(userExistent, {
+        ...data,
+      });
+
+      return;
+    }
+
+    const user = new User();
 
     Object.assign(user, {
       ...data,
     });
 
-    if (!data.id) this.users.push(user);
+    this.users.push(user);
   }
 
   async findByEmail(email: string): Promise<User> {

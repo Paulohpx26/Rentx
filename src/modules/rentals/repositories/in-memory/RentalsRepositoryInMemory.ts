@@ -6,7 +6,21 @@ import { IRentalsRepository } from '../IRentalsRepository';
 class RentalsRepositoryInMemory implements IRentalsRepository {
   rentals: Rental[] = [];
 
+  async findById(id: string): Promise<Rental> {
+    return this.rentals.find(rental => rental.id === id);
+  }
+
   async create(data: ICreateRentalDTO): Promise<Rental> {
+    if (data.id) {
+      const rentalExistent = this.rentals.find(rental => rental.id === data.id);
+
+      Object.assign(rentalExistent, {
+        ...data,
+      });
+
+      return rentalExistent;
+    }
+
     const rental = new Rental();
 
     Object.assign(rental, {
@@ -31,6 +45,10 @@ class RentalsRepositoryInMemory implements IRentalsRepository {
     return this.rentals.find(
       rental => rental.user_id === user_id && !rental.end_date,
     );
+  }
+
+  async listByUser(user_id: string): Promise<Rental[]> {
+    return this.rentals.filter(rental => rental.user_id === user_id);
   }
 }
 export { RentalsRepositoryInMemory };
