@@ -1,5 +1,5 @@
 # Rentx
-:barber: Sample API REST built with NodeJS, Express and Sequelize
+🚗 Sample REST API built with NodeJS, Express and TypeORM
 
 ## Running Locally
 Change configs in "ormconfig.json". 
@@ -7,6 +7,7 @@ Change configs in "ormconfig.json".
 Create the database locally.
 
 ```sh
+# install dependencies
 yarn
 
 # start the server
@@ -16,6 +17,7 @@ yarn dev
 Change configs in "docker-compose.yml"
 
 ```sh
+# create a docker container with application and database
 docker-compose up
 
 # if server stops
