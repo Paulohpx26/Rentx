@@ -11,18 +11,14 @@ class CarsRepositoryInMemory implements ICarsRepository {
     if (data.id) {
       const carExistent = this.cars.find(car => car.id === data.id);
 
-      Object.assign(carExistent, {
-        ...data,
-      });
+      Object.assign(carExistent, data);
 
       return carExistent;
     }
 
     const car = new Car();
 
-    Object.assign(car, {
-      ...data,
-    });
+    Object.assign(car, data);
 
     this.cars.push(car);
 

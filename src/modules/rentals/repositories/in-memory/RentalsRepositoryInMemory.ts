@@ -14,9 +14,7 @@ class RentalsRepositoryInMemory implements IRentalsRepository {
     if (data.id) {
       const rentalExistent = this.rentals.find(rental => rental.id === data.id);
 
-      Object.assign(rentalExistent, {
-        ...data,
-      });
+      Object.assign(rentalExistent, data);
 
       return rentalExistent;
     }

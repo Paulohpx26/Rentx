@@ -24,7 +24,6 @@ export async function ensureAuthenticated(
   }
 
   const [, token] = authHeader.split(' ');
-  console.log('????????????????');
   try {
     const { sub: user_id } = verify(
       token,
@@ -35,7 +34,6 @@ export async function ensureAuthenticated(
       user_id,
       token,
     );
-    console.log(userToken);
 
     if (!userToken) {
       throw new AppError("Token doesn't exists", 401);

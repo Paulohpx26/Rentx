@@ -10,18 +10,14 @@ class UsersRepositoryInMemory implements IUsersRepository {
     if (data.id) {
       const userExistent = this.users.find(user => user.id === data.id);
 
-      Object.assign(userExistent, {
-        ...data,
-      });
+      Object.assign(userExistent, data);
 
       return;
     }
 
     const user = new User();
 
-    Object.assign(user, {
-      ...data,
-    });
+    Object.assign(user, data);
 
     this.users.push(user);
   }
