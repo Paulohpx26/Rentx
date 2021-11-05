@@ -6,13 +6,13 @@ import { IUsersRepository } from '../IUsersRepository';
 class UsersRepositoryInMemory implements IUsersRepository {
   users: User[] = [];
 
-  async create(data: ICreateUserDTO): Promise<void> {
+  async create(data: ICreateUserDTO): Promise<User> {
     if (data.id) {
       const userExistent = this.users.find(user => user.id === data.id);
 
       Object.assign(userExistent, data);
 
-      return;
+      return userExistent;
     }
 
     const user = new User();
@@ -20,6 +20,8 @@ class UsersRepositoryInMemory implements IUsersRepository {
     Object.assign(user, data);
 
     this.users.push(user);
+
+    return user;
   }
 
   async findByEmail(email: string): Promise<User> {

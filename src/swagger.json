@@ -64,7 +64,14 @@
         },
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#definitions/User"
+                }
+              }
+            }
           },
           "400": {
             "description": "Email already exists"

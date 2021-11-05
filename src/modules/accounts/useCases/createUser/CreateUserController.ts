@@ -7,9 +7,9 @@ class CreateUserController {
   async handle(request: Request, response: Response): Promise<Response> {
     const createUserUseCase = container.resolve(CreateUserUserCase);
 
-    await createUserUseCase.execute(request.body);
+    const user = await createUserUseCase.execute(request.body);
 
-    return response.status(201).send();
+    return response.status(201).json(user);
   }
 }
 
