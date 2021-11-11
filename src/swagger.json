@@ -49,7 +49,7 @@
       "post": {
         "tags": ["User"],
         "summary": "Create a new user",
-        "description": "Access for `admin` only",
+        "description": "Create a new user",
         "security": [
           { "bearerAuth": [] }
         ],

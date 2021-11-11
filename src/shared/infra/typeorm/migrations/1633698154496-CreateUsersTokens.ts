@@ -9,8 +9,12 @@ export class CreateUsersTokens1633698154496 implements MigrationInterface {
           { name: 'id', type: 'uuid', isPrimary: true },
           { name: 'refresh_token', type: 'varchar' },
           { name: 'user_id', type: 'uuid' },
-          { name: 'expires_date', type: 'timestamp' },
-          { name: 'created_at', type: 'timestamp', default: 'now()' },
+          { name: 'expires_date', type: 'timestamp with time zone' },
+          {
+            name: 'created_at',
+            type: 'timestamp with time zone',
+            default: 'now()',
+          },
         ],
         foreignKeys: [
           {
