@@ -1,14 +1,14 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe D:\Arquivos de Programas (x86)\Yarn\bin\yarn.js add handlebars
+  D:\Program Files\nodejs\node.exe D:\Program Files (x86)\Yarn\bin\yarn.js add aws-sdk
 
 PATH: 
-  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\laragon\bin\php\php-7.4.13-Win32-vc15-x64;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_211\bin;D:\Android\Sdk\emulator;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X64\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X86\;E:\Projetos\TCS\9.2.2.0-IBM-MQC-REDIST-WIN64\bin64\;E:\Projetos\TCS\9.2.2.0-IBM-MQC-REDIST-WIN64\bin\;C:\Users\Supreme\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\MongoDB\Server\4.0\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\Supreme\composer.phar;D:\Arquivos de Programas (x86)\Yarn\bin\;D:\Arquivos de Programas\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\Supreme\Python\Python38-32\Scripts\;C:\Users\Supreme\Python\Python38-32\;C:\Users\Supreme\AppData\Local\Programs\Python\Launcher\;C:\Users\Supreme\AppData\Local\Microsoft\WindowsApps;C:\Users\Supreme\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Supreme\codenation;C:\Program Files\Azure Data Studio\bin;C:\Users\Supreme\AppData\Roaming\npm;C:\Users\Supreme\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Supreme\AppData\Local\ComposerSetup\bin;C:\Users\Supreme\AppData\Roaming\Composer\vendor\bin;C:\Users\Supreme\AppData\Local\Yarn\bin;D:\Arquivos de Programas\Hyper\resources\bin
+  C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;D:\AppData\nvm;D:\Program Files\nodejs;D:\Program Files (x86)\Yarn\bin\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\ProgramData\chocolatey\bin;D:\Program Files\Git\cmd;C:\Users\Paulo Henrique\AppData\Local\Microsoft\WindowsApps;D:\Program Files\Microsoft VS Code\bin;D:\AppData\nvm;D:\Program Files\nodejs;C:\Users\Paulo Henrique\AppData\Local\Yarn\bin
 
 Yarn version: 
-  1.22.5
+  1.22.15
 
 Node version: 
-  14.16.0
+  16.13.0
 
 Platform: 
   win32 x64
@@ -26,7 +26,7 @@ npm manifest:
       "dev": "ts-node-dev -r tsconfig-paths/register --inspect=0.0.0.0:9229 --transpile-only --ignore-watch node_modules --respawn --poll src/shared/infra/http/server.ts",
       "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
       "test": "set NODE_ENV=test&& jest --runInBand",
-      "seed:admin": "ts-node-dev src/shared/infra/typeorm/seeds/admin.ts"
+      "seed:admin": "ts-node-dev -r tsconfig-paths/register src/shared/infra/typeorm/seeds/admin.ts"
     },
     "dependencies": {
       "@types/nodemailer": "^6.4.4",
@@ -35,6 +35,7 @@ npm manifest:
       "dayjs": "^1.10.7",
       "express": "^4.17.1",
       "express-async-errors": "^3.1.1",
+      "handlebars": "^4.7.7",
       "jsonwebtoken": "^8.5.1",
       "multer": "^1.4.3",
       "nodemailer": "^6.7.0",
@@ -2347,6 +2348,18 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.8.tgz#e412b8d33f5e006593cbd3cee6df9f2cebbe802a"
     integrity sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==
   
+  handlebars@^4.7.7:
+    version "4.7.7"
+    resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.7.tgz#9ce33416aad02dbd6c8fafa8240d5d98004945a1"
+    integrity sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==
+    dependencies:
+      minimist "^1.2.5"
+      neo-async "^2.6.0"
+      source-map "^0.6.1"
+      wordwrap "^1.0.0"
+    optionalDependencies:
+      uglify-js "^3.1.4"
+  
   has-ansi@^2.0.0:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/has-ansi/-/has-ansi-2.0.0.tgz#34f5049ce1ecdf2b0649af3ef24e45ed35416d91"
@@ -3533,6 +3546,11 @@ Lockfile:
     version "0.6.2"
     resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
     integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
+  
+  neo-async@^2.6.0:
+    version "2.6.2"
+    resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
+    integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
   
   node-int64@^0.4.0:
     version "0.4.0"
@@ -4776,6 +4794,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
     integrity sha512-DqGhF5IKoBl8WNf8C1gu8q0xZSInh9j1kJJMqT3a94w1JzVaBU4EXOSMrz9yDqMT0xt3selp83fuFMQ0uzv6qA==
   
+  uglify-js@^3.1.4:
+    version "3.14.2"
+    resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.14.2.tgz#d7dd6a46ca57214f54a2d0a43cad0f35db82ac99"
+    integrity sha512-rtPMlmcO4agTUfz10CbgJ1k6UAoXM2gWb3GoMPPZB/+/Ackf8lNWk11K4rYi2D0apgoFRLtQOZhb+/iGNJq26A==
+  
   unbox-primitive@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/unbox-primitive/-/unbox-primitive-1.0.1.tgz#085e215625ec3162574dc8859abee78a59b14471"
@@ -4919,6 +4942,11 @@ Lockfile:
     version "1.2.3"
     resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
     integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
+  
+  wordwrap@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
+    integrity sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=
   
   wrap-ansi@^7.0.0:
     version "7.0.0"
